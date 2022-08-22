@@ -14,6 +14,7 @@ pipeline {
         }
         stage('Deploy in Staging Environment'){
             steps{
+                copyArtifacts (projectName: 'Package_Application_Pipeline', filter: '**/*.war');
                 build job: 'Deploy_Application_Staging'
 
             }
